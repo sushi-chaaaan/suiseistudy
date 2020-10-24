@@ -1,7 +1,6 @@
 import discord
 import os
-
-#from discord import user
+import traceback
 
 
 token = os.environ['DISCORD_BOT_TOKEN']
