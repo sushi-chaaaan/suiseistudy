@@ -1,6 +1,8 @@
 import discord
 import os
 
+from discord import user
+
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -12,10 +14,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.author == client.user or message.author == discord.User.bot:
+    if message.author.bot:
         return
 
-    if message.content.startswith('ﾎｼﾏﾁｰ!!') and message.author != discord.User.bot:
+    if message.content.startswith('ﾎｼﾏﾁｰ!!') :
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
 client.run(token)
