@@ -12,7 +12,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('へい'):
+    if message.content.startswith('やあ'):
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
 client.run(DISCORD_BOT_TOKEN)
