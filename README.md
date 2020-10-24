@@ -1,2 +1,2 @@
 # suiseistudy
-discord
+discordbotをPythonを拙いながら少しずつ学習していった軌跡
