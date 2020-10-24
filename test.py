@@ -14,4 +14,4 @@ async def on_message(message):
     if message.content.startswith('へい'):
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
-client.run('NzY5NTIwNzAyNDI4MTUxODM4.X5QOAA.gLHgNfYoNzqhAy6Iz2ZOE5TaAWc')
+client.run('NzY5NTIwNzAyNDI4MTUxODM4.X5QOAA.CrE48gEj3VbXgG0wXFMaKS0ZIRo')
