@@ -14,4 +14,4 @@ async def on_message(message):
     if message.content.startswith('へい'):
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
-client.run('')
+client.run(TOKEN)
