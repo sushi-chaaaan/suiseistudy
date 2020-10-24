@@ -1,4 +1,5 @@
 import discord
+token = os.environ['DISCORD_BOT_TOKEN']
 
 client = discord.Client()
 
@@ -14,4 +15,4 @@ async def on_message(message):
     if message.content.startswith('へい'):
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
-client.run(TOKEN)
+client.run(DISCORD_BOT_TOKEN)
