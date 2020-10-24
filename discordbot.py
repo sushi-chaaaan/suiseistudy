@@ -1,7 +1,7 @@
 import discord
 import os
 
-from discord import user
+#from discord import user
 
 
 token = os.environ['DISCORD_BOT_TOKEN']
