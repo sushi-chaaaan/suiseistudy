@@ -1,7 +1,7 @@
 import discord
 import os
 import traceback
-
+from datetime import datetime, timedelta
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -16,9 +16,21 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    if message.content.startswith('ﾎｼﾏﾁｰ!!') :
+    if message.content('ﾎｼﾏﾁｰ!!') :
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
-client.run(token)
+#VC入退室
+@client.event
+async def on_voice_state_update(member,before,after) :
+    if member.guild.id == 769396177221058600 and (before.channel != after.channel):
+        now = datetime.utcnow() + timedelta(hours=9)
+        alert_channel = client.get_channel(769718981908758589)
+        if before.channel is None: 
+            msg = f'{now:%m/%d-%H:%M} に {member.name} が {after.channel.name} に参加しました。'
+            await alert_channel.send(msg)
+        elif after.channel is None: 
+            msg = f'{now:%m/%d-%H:%M} に {member.name} が {before.channel.name} から退出しました。'
+            await alert_channel.send(msg)
 
-#test
+
+client.run(token)
