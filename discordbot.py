@@ -20,3 +20,5 @@ async def on_message(message):
         await message.channel.send('ﾎｼﾏﾁｰ!!')
 
 client.run(token)
+
+#test
