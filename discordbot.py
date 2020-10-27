@@ -2,12 +2,21 @@ import discord
 import os
 import traceback
 from datetime import datetime, timedelta
+import sys
 
 #token
-token = os.environ['DISCORD_BOT_TOKEN']
-
+#token = os.environ['DISCORD_BOT_TOKEN']
+### イベントハンドラ一覧 #################################################
+# async def の後を変えるだけで実行されるイベンドが変わる
+# メッセージ受信時に実行：   on_message(message)
+# Bot起動時に実行：      on_ready(message)
+# リアクション追加時に実行:  on_reaction_add(reaction, user)
+# 新規メンバー参加時に実行： on_member_join(member)
+# ボイスチャンネル出入に実行： on_voice_state_update(member, before, after)
+###################################################################
 
 client = discord.Client()
+
 
 #Bootmsg-console
 @client.event
@@ -39,4 +48,11 @@ async def on_voice_state_update(member,before,after) :
             msg = f'{now:%m/%d-%H:%M:%S} に {member.name} さんが VC"{before.channel.name}" から VC"{after.channel.name}" に移動しました。'
             await alert_channel.send(msg)
 
-client.run(token)
+#ウェルカムメッセージのようなもの
+'''
+@client.event
+async def on_member_join(member):
+    await 
+'''
+
+client.run("NzY5NTIwNzAyNDI4MTUxODM4.X5QOAA.aBZhdqf703ePRa-KMmVcsw3QkuE")
