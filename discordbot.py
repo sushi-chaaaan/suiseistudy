@@ -14,7 +14,8 @@ import sys
 # 新規メンバー参加時に実行： on_member_join(member)
 # ボイスチャンネル出入に実行： on_voice_state_update(member, before, after)
 ###################################################################
-token=
+#token
+token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
 
 
