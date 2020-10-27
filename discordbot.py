@@ -34,5 +34,7 @@ async def on_voice_state_update(member,before,after) :
         elif after.channel is None: 
             msg = f'{now:%m/%d-%H:%M:%S} に {member.name} が {before.channel.name} から退出しました。'
             await alert_channel.send(msg)
+        else:
+            msg = f'{now:%m月/%d日%H:%M:%S} に {member.name} さんが {before.channel.name} から {after.channel.name} に移動しました。'
 
 client.run(token)
