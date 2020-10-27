@@ -4,8 +4,6 @@ import traceback
 from datetime import datetime, timedelta
 import sys
 
-#token
-#token = os.environ['DISCORD_BOT_TOKEN']
 ### イベントハンドラ一覧 #################################################
 # async def の後を変えるだけで実行されるイベンドが変わる
 # メッセージ受信時に実行：   on_message(message)
