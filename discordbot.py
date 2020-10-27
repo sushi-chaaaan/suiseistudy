@@ -14,7 +14,7 @@ import sys
 # 新規メンバー参加時に実行： on_member_join(member)
 # ボイスチャンネル出入に実行： on_voice_state_update(member, before, after)
 ###################################################################
-
+token=
 client = discord.Client()
 
 
@@ -55,4 +55,4 @@ async def on_member_join(member):
     await 
 '''
 
-client.run("NzY5NTIwNzAyNDI4MTUxODM4.X5QOAA.aBZhdqf703ePRa-KMmVcsw3QkuE")
+client.run(token)
