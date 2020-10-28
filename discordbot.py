@@ -4,6 +4,8 @@ import traceback
 from datetime import datetime, timedelta
 import sys
 
+from discord import message
+
 ### イベントハンドラ一覧 #################################################
 # async def の後を変えるだけで実行されるイベンドが変わる
 # メッセージ受信時に実行：   on_message(message)
@@ -14,7 +16,7 @@ import sys
 ###################################################################
 #token
 token = os.environ['DISCORD_BOT_TOKEN']
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 
 
 #Bootmsg-console
@@ -46,6 +48,17 @@ async def on_voice_state_update(member,before,after) :
         else:
             msg = f'{now:%m/%d-%H:%M:%S} に {member.name} さんが VC"{before.channel.name}" から VC"{after.channel.name}" に移動しました。'
             await alert_channel.send(msg)
+
+#今日も一日
+@client.event
+async def on_message(message):
+    if message.author.bot:
+        return
+
+    if message.content.startswith('今日も一日!'):
+        
+        await message.channel.send('')
+
 
 #ウェルカムメッセージのようなもの
 '''
