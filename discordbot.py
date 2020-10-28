@@ -2,7 +2,11 @@ import discord
 import os
 import traceback
 from datetime import datetime, timedelta
-import sys
+import urllib3.request
+from bs4 import BeautifulSoup
+import requests
+
+
 
 from discord import message
 
@@ -56,7 +60,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('今日も一日!'):
-        
+
         await message.channel.send('')
 
 
