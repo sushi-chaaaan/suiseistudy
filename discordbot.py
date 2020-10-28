@@ -2,12 +2,12 @@ import discord
 import os
 import traceback
 from datetime import datetime, timedelta
-import urllib3.request
+import urllib.request
 from bs4 import BeautifulSoup
 import requests
-
-
-
+import asyncio
+import json
+from time import sleep
 from discord import message
 
 ### イベントハンドラ一覧 #################################################
@@ -20,13 +20,15 @@ from discord import message
 ###################################################################
 #token
 token = os.environ['DISCORD_BOT_TOKEN']
+yahoo_apiid = os.environ['YAHOO_APIID']
+weather_key = os.environ['WEATHERKEY']
 client = discord.Client(intents=discord.Intents.all())
 
 
 #Bootmsg-console
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('logged in as {0.user}'.format(client))
 
 #ﾎｼﾏﾁｰ!!
 @client.event
@@ -54,6 +56,12 @@ async def on_voice_state_update(member,before,after) :
             await alert_channel.send(msg)
 
 #今日も一日
+tenkimsg = None
+rssurlOkayama = "https://rss-weather.yahoo.co.jp/rss/days/6610.xml"
+tenkiURLOkayama = "https://weather.yahoo.co.jp/weather/33/6610/33202.html"
+rssurlFukuyama = "https://rss-weather.yahoo.co.jp/rss/days/6710.xml"
+tenkiURLFukuyama = "https://weather.yahoo.co.jp/weather/34/6710/34207.html"
+
 @client.event
 async def on_message(message):
     if message.author.bot:
