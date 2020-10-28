@@ -18,12 +18,12 @@ from discord import message
 # 新規メンバー参加時に実行： on_member_join(member)
 # ボイスチャンネル出入に実行： on_voice_state_update(member, before, after)
 ###################################################################
-#token
+
 token = os.environ['DISCORD_BOT_TOKEN']
 yahoo_apiid = os.environ['YAHOO_APIID']
 weather_key = os.environ['WEATHERKEY']
-client = discord.Client(intents=discord.Intents.all())
 
+client = discord.Client(intents=discord.Intents.all())
 
 #Bootmsg-console
 @client.event
@@ -56,6 +56,7 @@ async def on_voice_state_update(member,before,after) :
             await alert_channel.send(msg)
 
 #今日も一日
+'''
 tenkimsg = None
 rssurlOkayama = "https://rss-weather.yahoo.co.jp/rss/days/6610.xml"
 tenkiURLOkayama = "https://weather.yahoo.co.jp/weather/33/6610/33202.html"
@@ -70,7 +71,7 @@ async def on_message(message):
     if message.content.startswith('今日も一日!'):
 
         await message.channel.send('')
-
+'''
 
 #ウェルカムメッセージのようなもの
 '''
