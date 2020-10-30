@@ -23,7 +23,8 @@ token = os.environ['DISCORD_BOT_TOKEN']
 yahoo_apiid = os.environ['YAHOO_APIID']
 weather_key = os.environ['WEATHERKEY']
 
-client = discord.Client(intents=discord.Intents.all())
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
 
 #Bootmsg-console
 @client.event
