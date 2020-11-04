@@ -2,12 +2,8 @@ import discord
 import os
 import traceback
 from datetime import datetime, timedelta
-import urllib.request
-from bs4 import BeautifulSoup
+import sys
 import requests
-import asyncio
-import json
-from time import sleep
 from discord import message
 
 ### イベントハンドラ一覧 #################################################
